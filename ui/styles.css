@@ -1,0 +1,434 @@
+/* API Forge — Neon Gen-Z theme */
+
+/* ── Page background ───────────────────────────────────────────────────── */
+.stApp {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(255, 0, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(0, 245, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(191, 255, 0, 0.03) 0%, transparent 60%),
+    var(--bg-page) !important;
+  font-family: var(--font-body);
+}
+
+.stApp::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.03;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 245, 255, 0.15) 2px,
+    rgba(0, 245, 255, 0.15) 3px
+  );
+}
+
+.block-container {
+  max-width: 1200px;
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Hero ──────────────────────────────────────────────────────────────── */
+.forge-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 2.25rem 1.75rem;
+  border: 1px solid var(--border-default);
+  border-radius: 20px;
+  background: linear-gradient(140deg, #120018 0%, var(--bg-surface) 55%, var(--bg-page) 100%);
+  margin-bottom: 1.25rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(255, 0, 255, 0.08), 0 0 80px rgba(0, 245, 255, 0.05);
+}
+
+.forge-hero::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.12) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.forge-hero::after {
+  content: "";
+  position: absolute;
+  bottom: -60px;
+  left: 30%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.forge-hero h1 {
+  margin: 0 0 0.35rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: var(--font-heading);
+  background: linear-gradient(130deg, var(--neon-cyan) 0%, var(--neon-magenta) 55%, var(--neon-lime) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 24px rgba(0, 245, 255, 0.45));
+}
+
+.forge-hero-sub {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.forge-chips {
+  display: flex;
+  gap: 7px;
+  margin-top: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.forge-chip {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  background: rgba(0, 245, 255, 0.05);
+  border: 1px solid rgba(0, 245, 255, 0.35);
+  color: var(--neon-cyan);
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.forge-chip:hover {
+  border-color: var(--neon-magenta);
+  box-shadow: 0 0 14px rgba(255, 0, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.forge-chip:nth-child(2) {
+  border-color: rgba(255, 0, 255, 0.35);
+  color: var(--neon-magenta);
+  background: rgba(255, 0, 255, 0.05);
+}
+
+.forge-chip:nth-child(3) {
+  border-color: rgba(191, 255, 0, 0.35);
+  color: var(--neon-lime);
+  background: rgba(191, 255, 0, 0.05);
+}
+
+.forge-chip:nth-child(4) {
+  border-color: rgba(255, 0, 110, 0.35);
+  color: var(--neon-pink);
+  background: rgba(255, 0, 110, 0.05);
+}
+
+/* ── Tabs ────────────────────────────────────────────────────────────── */
+.stTabs [data-baseweb="tab-list"] {
+  gap: 2px;
+  background: rgba(10, 10, 15, 0.9);
+  padding: 3px;
+  border-radius: 12px;
+  border: 1px solid var(--border-default);
+}
+
+.stTabs [data-baseweb="tab"] {
+  border-radius: 9px;
+  padding: 7px 22px;
+  color: var(--text-muted) !important;
+  font-size: 13.5px;
+  font-weight: 500;
+  background: transparent;
+  border: none;
+  transition: color 0.15s, box-shadow 0.2s;
+}
+
+.stTabs [aria-selected="true"] {
+  background: rgba(20, 16, 31, 0.95) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-strong) !important;
+  box-shadow: 0 0 16px rgba(0, 245, 255, 0.25), inset 0 -2px 0 var(--neon-cyan);
+}
+
+.stTabs [data-baseweb="tab-highlight"],
+.stTabs [data-baseweb="tab-border"] {
+  display: none;
+}
+
+/* ── Step headers ────────────────────────────────────────────────────── */
+.step-hdr {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin: 2.25rem 0 1rem;
+}
+
+.step-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(255, 0, 255, 0.2), rgba(0, 245, 255, 0.2));
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  font-size: 11.5px;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.3);
+}
+
+.step-lbl {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  font-family: var(--font-heading);
+}
+
+.step-rule {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 245, 255, 0.4) 0%, transparent 100%);
+}
+
+/* ── Section label ───────────────────────────────────────────────────── */
+.sec-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--neon-magenta);
+  margin: 0 0 10px;
+  font-family: var(--font-mono);
+  text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+
+/* ── Metric cards ────────────────────────────────────────────────────── */
+div[data-testid="stMetric"] {
+  background: rgba(20, 16, 31, 0.75) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: 14px !important;
+  padding: 0.9rem 1.1rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+div[data-testid="stMetric"]:hover {
+  border-color: var(--border-strong) !important;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+div[data-testid="stMetricLabel"] p {
+  font-size: 12px !important;
+  color: var(--text-muted) !important;
+}
+
+div[data-testid="stMetricValue"] {
+  font-size: 1.7rem !important;
+  font-weight: 700 !important;
+  color: var(--text-primary) !important;
+}
+
+/* ── Primary button ──────────────────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 14px rgba(255, 0, 255, 0.35), 0 0 28px rgba(0, 245, 255, 0.2); }
+  50% { box-shadow: 0 0 22px rgba(255, 0, 255, 0.55), 0 0 40px rgba(0, 245, 255, 0.35); }
+}
+
+.stButton > button[kind="primary"] {
+  background: linear-gradient(135deg, var(--neon-magenta) 0%, var(--neon-cyan) 100%) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #0A0A0F !important;
+  animation: glow-pulse 3s ease-in-out infinite;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.stButton > button[kind="primary"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 245, 255, 0.5), 0 0 50px rgba(255, 0, 255, 0.3) !important;
+}
+
+.stButton > button[kind="secondary"] {
+  border-radius: 10px !important;
+  font-weight: 500;
+  border-color: var(--border-default) !important;
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.stButton > button[kind="secondary"]:hover {
+  border-color: var(--neon-cyan) !important;
+  background: var(--bg-elevated) !important;
+  box-shadow: 0 0 12px rgba(0, 245, 255, 0.2);
+}
+
+/* ── Download buttons ────────────────────────────────────────────────── */
+div[data-testid="stDownloadButton"] button {
+  border-radius: 10px !important;
+  background: rgba(20, 16, 31, 0.85) !important;
+  border: 1px solid var(--border-default) !important;
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+div[data-testid="stDownloadButton"] button:hover {
+  background: var(--bg-elevated) !important;
+  border-color: var(--neon-cyan) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.25);
+}
+
+/* ── Text inputs ─────────────────────────────────────────────────────── */
+.stTextInput input,
+.stNumberInput input {
+  border-radius: 9px !important;
+  border-color: var(--border-default) !important;
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.stTextInput input:focus,
+.stNumberInput input:focus {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.25) !important;
+}
+
+/* ── Selectboxes ─────────────────────────────────────────────────────── */
+div[data-baseweb="select"] > div {
+  border-radius: 9px !important;
+  border-color: var(--border-default) !important;
+  background: var(--bg-input) !important;
+}
+
+/* ── Multiselect tags ────────────────────────────────────────────────── */
+div[data-baseweb="tag"] {
+  border-radius: 6px !important;
+  background: rgba(255, 0, 255, 0.15) !important;
+  border-color: rgba(255, 0, 255, 0.4) !important;
+}
+
+div[data-baseweb="tag"] span {
+  color: var(--neon-cyan) !important;
+}
+
+/* ── File uploader ───────────────────────────────────────────────────── */
+@keyframes border-pulse {
+  0%, 100% { border-color: rgba(0, 245, 255, 0.3); }
+  50% { border-color: rgba(255, 0, 255, 0.5); }
+}
+
+div[data-testid="stFileUploader"] section {
+  border-style: dashed !important;
+  border-radius: 16px !important;
+  border-color: var(--border-default) !important;
+  background: rgba(10, 10, 15, 0.6);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+div[data-testid="stFileUploader"] section:hover {
+  border-color: var(--neon-cyan) !important;
+  box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+  animation: border-pulse 2s ease-in-out infinite;
+}
+
+/* ── Expanders ───────────────────────────────────────────────────────── */
+div[data-testid="stExpander"] {
+  border-radius: 12px !important;
+  border: 1px solid var(--border-muted) !important;
+  border-left: 3px solid var(--neon-cyan) !important;
+  background: rgba(10, 10, 15, 0.7);
+  overflow: hidden;
+}
+
+div[data-testid="stExpander"] summary {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.15s;
+}
+
+div[data-testid="stExpander"] summary:hover {
+  color: var(--neon-cyan);
+}
+
+/* ── Alerts ──────────────────────────────────────────────────────────── */
+div[data-testid="stAlert"] {
+  border-radius: 10px !important;
+  font-size: 13px;
+  border-left-width: 3px !important;
+}
+
+div[data-testid="stNotificationContentInfo"],
+div[data-testid="stAlert"]:has(svg[data-testid="stAlertIconInfo"]) {
+  background: rgba(0, 245, 255, 0.08) !important;
+  border-left-color: var(--neon-cyan) !important;
+}
+
+div[data-testid="stNotificationContentSuccess"],
+div[data-testid="stAlert"]:has(svg[data-testid="stAlertIconSuccess"]) {
+  background: rgba(191, 255, 0, 0.08) !important;
+  border-left-color: var(--neon-lime) !important;
+}
+
+div[data-testid="stNotificationContentWarning"],
+div[data-testid="stAlert"]:has(svg[data-testid="stAlertIconWarning"]) {
+  background: rgba(255, 230, 0, 0.08) !important;
+  border-left-color: var(--neon-yellow) !important;
+}
+
+div[data-testid="stNotificationContentError"],
+div[data-testid="stAlert"]:has(svg[data-testid="stAlertIconError"]) {
+  background: rgba(255, 0, 110, 0.08) !important;
+  border-left-color: var(--neon-pink) !important;
+}
+
+/* ── Divider ─────────────────────────────────────────────────────────── */
+hr[data-testid="stDivider"] {
+  border-color: var(--border-muted) !important;
+  margin: 1.75rem 0 !important;
+}
+
+/* ── Code blocks ─────────────────────────────────────────────────────── */
+.stCode,
+div[data-testid="stCodeBlock"] {
+  border-radius: 10px !important;
+  border: 1px solid var(--border-muted) !important;
+}
+
+/* ── Checkbox ────────────────────────────────────────────────────────── */
+.stCheckbox label {
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+/* ── Bordered containers ─────────────────────────────────────────────── */
+div[data-testid="stVerticalBlockBorderWrapper"] {
+  border-color: var(--border-default) !important;
+  border-radius: 14px !important;
+  background: rgba(20, 16, 31, 0.5);
+  backdrop-filter: blur(6px);
+}
+
+/* ── Spinner ─────────────────────────────────────────────────────────── */
+.stSpinner > div {
+  border-top-color: var(--neon-cyan) !important;
+  border-right-color: var(--neon-magenta) !important;
+}
